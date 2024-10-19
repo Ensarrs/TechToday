@@ -66,48 +66,72 @@ aside {
     }
     
   }
-  /*ARTICLES*/
-   
-  .p-4 {
-    display: flex;
-  }
+  /*Articles*/
+  #rss-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    color: #fff;
+}
 
-  .main {
-    background-color: #222222;
-    padding: 30px;
-  }
-
-  .image-thumbnail {
-    height: 100%;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  .text-2xl {
-    font-size: 28px;
-  }
-
-  .thb{
-    width: 70%;
-  }
-
-  .prose {
-    text-align: justify;
-  }
-
-  .about {
+.rss-card {
+    background-color: #0c0c30;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
-  }
+    overflow: hidden;
+    cursor: pointer;
+    color: #fff;
+}
 
-  .italic {
-    font-size: 18px;
-    font-weight: bold;
-  }
+.rss-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
 
-  .img-thumbnail {
-    width: 120px;
-    height: 70px;
-  }
+.rss-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fefeff;
+    margin-bottom: 0.5rem;
+}
+
+.rss-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #758093;
+    margin-bottom: auto;
+}
+
+.rss-card a {
+    display: inline-block;
+    background-color: #222222;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.rss-card a:hover {
+    background-color: #636363;
+    color: #00438b;
+}
+
+.rss-card .rss-content {
+    padding: 16px;
+    flex-grow: 1;
+}
+
+.rss-card .rss-date {
+    font-size: 0.875rem;
+    color: #718096;
+    margin-bottom: 0.5rem;
+}
