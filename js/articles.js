@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const description = item.description;
                 const link = item.url;
                 const pubDate = item.publishedAt;
-                const imageUrl = item.urlToImage; // Added image URL
+                const imageUrl = item.urlToImage;
                 const date = new Date(pubDate).toLocaleDateString(undefined, {
                     year: 'numeric',
                     month: 'long',
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
 
                 const articleCard = `
-                    <div class="api-card  p-4 rounded-lg shadow">
+                    <div class="api-card bg-white p-4 rounded-lg shadow">
                         <div class="api-content">
                             <h3 class="api-h3 text-xl font-semibold mb-2">${title}</h3>
                             <p class="api-date text-gray-500">Released on: ${date}</p>
