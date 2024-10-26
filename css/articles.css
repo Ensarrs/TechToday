@@ -67,7 +67,7 @@ aside {
     
   }
   /*Articles*/
-  #rss-feed {
+  #api-feed {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -75,7 +75,7 @@ aside {
     color: #fff;
 }
 
-.rss-card {
+.api-card {
     background-color: #0c0c30;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
@@ -88,26 +88,26 @@ aside {
     color: #fff;
 }
 
-.rss-card:hover {
+.api-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.rss-card h3 {
+.api-card h3 {
     font-size: 1.25rem;
     font-weight: 600;
     color: #fefeff;
     margin-bottom: 0.5rem;
 }
 
-.rss-card p {
+.api-card p {
     font-size: 0.9375rem;
     line-height: 1.6;
     color: #758093;
     margin-bottom: auto;
 }
 
-.rss-card a {
+.api-card a {
     display: inline-block;
     background-color: #222222;
     padding: 10px 20px;
@@ -120,17 +120,17 @@ aside {
     transition: color 0.2s ease;
 }
 
-.rss-card a:hover {
+.api-card a:hover {
     background-color: #636363;
     color: #00438b;
 }
 
-.rss-card .rss-content {
+.api-card .rss-content {
     padding: 16px;
     flex-grow: 1;
 }
 
-.rss-card .rss-date {
+.api-card .rss-date {
     font-size: 0.875rem;
     color: #718096;
     margin-bottom: 0.5rem;
