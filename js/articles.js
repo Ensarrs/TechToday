@@ -1,39 +1,51 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const apiKey = 'pub_57408c7c7feea6f53fcbc1bdce374c8784dda';
-    const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&language=en&category=technology`;
-    const newsContainer = document.getElementById("api-feed");
+    const apiKey = "42a9adf9158606528c1321c72cf91c17";
+    const url = `https://gnews.io/api/v4/top-headlines?token=${apiKey}&lang=en&topic=technology`;
 
     fetch(url)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.json();
+        })
         .then(data => {
-            const items = data.results;
-            items.forEach(item => {
-                const title = item.title;
-                const description = item.description;
-                const link = item.link;
-                const pubDate = item.pubDate;
-                const imageUrl = item.image_url;
-                const date = new Date(pubDate).toLocaleDateString(undefined, {
+            const feedContainer = document.getElementById("news-feed");
+            if (!feedContainer) {
+                throw new Error("Element with id 'news-feed' not found.");
+            }
+
+            if (!data.articles || !Array.isArray(data.articles)) {
+                throw new Error("No articles data found or data.articles is not an array.");
+            }
+
+            data.articles.forEach(article => {
+                const title = article.title || "No title available";
+                const description = article.description || "No description available";
+                const link = article.url || "#";
+                const publishedAt = new Date(article.publishedAt).toLocaleDateString(undefined, {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
                 });
+                const imageUrl = article.image || "";
 
                 const articleCard = `
-                    <div class="api-card p-4 rounded-lg shadow">
-                        <div class="api-content">
-                            <h3 class="api-h3 text-xl font-semibold mb-2">${title}</h3>
-                            <p class="api-date text-gray-500">Released on: ${date}</p>
-                            ${imageUrl ? `<img src="${imageUrl}" class="w-full mb-4 rounded" />` : ''}
-                            <p class="text-gray-700">${description ? description.slice(0, 150) : ''}...</p>
-                            <a href="${link}" class="text-blue-500 mt-4 block" target="_blank">Continue reading</a>
+                    <div class="news-card">
+                        <div class="news-content">
+                            <h3>${title}</h3>
+                            <p class="news-date">Published on: ${publishedAt}</p>
+                            ${imageUrl ? `<img src="${imageUrl}" alt="${title}" class="news-image" />` : ""}
+                            <p>${description.slice(0, 150)}...</p>
+                            <a href="${link}" target="_blank">Read more</a>
                         </div>
                     </div>
                 `;
-                newsContainer.innerHTML += articleCard;
+
+                feedContainer.innerHTML += articleCard;
             });
         })
         .catch(error => {
-            console.error('Error fetching news:', error);
+            console.error('Error fetching news data:', error);
         });
 });

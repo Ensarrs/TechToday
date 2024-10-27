@@ -67,7 +67,7 @@ aside {
     
   }
   /*Articles*/
-  #api-feed {
+  #news-feed {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -75,7 +75,7 @@ aside {
     color: #fff;
 }
 
-.api-card {
+.news-card {
     background-color: #0c0c30;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
@@ -88,26 +88,26 @@ aside {
     color: #fff;
 }
 
-.api-card:hover {
+.news-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.api-card h3 {
+.news-card h3 {
     font-size: 1.25rem;
     font-weight: 600;
     color: #fefeff;
     margin-bottom: 0.5rem;
 }
 
-.api-card p {
+.news-card p {
     font-size: 0.9375rem;
     line-height: 1.6;
     color: #758093;
     margin-bottom: auto;
 }
 
-.api-card a {
+.news-card a {
     display: inline-block;
     background-color: #222222;
     padding: 10px 20px;
@@ -120,18 +120,23 @@ aside {
     transition: color 0.2s ease;
 }
 
-.api-card a:hover {
+.news-card a:hover {
     background-color: #636363;
     color: #00438b;
 }
 
-.api-card .rss-content {
+.news-card .news-content {
     padding: 16px;
     flex-grow: 1;
 }
 
-.api-card .rss-date {
+.news-card .news-date {
     font-size: 0.875rem;
     color: #718096;
     margin-bottom: 0.5rem;
+}
+.news-card img.news-image {
+    width: 100%;
+    height: auto; 
+    border-radius: 12px;
 }
